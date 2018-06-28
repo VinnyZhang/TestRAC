@@ -19,7 +19,7 @@
     
     @weakify(self);
     [self.addSignalTVM subscribeNext:^(id  _Nullable x) {
-        self_weak_.model.stuNumber = 20;
+        self_weak_.model.stuNumber += 1;
         [self_weak_.numChangedSignalTV sendNext:@(self_weak_.model.stuNumber)];
     }];
     
@@ -41,6 +41,14 @@
         _numChangedSignalTV = [[RACSubject alloc] init];
     }
     return _numChangedSignalTV;
+}
+
+- (RACSubject *)signalTC
+{
+    if(!_signalTC){
+        _signalTC = [[RACSubject alloc] init];
+    }
+    return _signalTC;
 }
 
 @end

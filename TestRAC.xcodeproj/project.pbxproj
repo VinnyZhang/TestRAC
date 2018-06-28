@@ -22,6 +22,7 @@
 		5F39902C20E346CB008EF6F3 /* ZXSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F39902420E346CA008EF6F3 /* ZXSView.m */; };
 		5F39902D20E346CB008EF6F3 /* ZXSViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F39902520E346CA008EF6F3 /* ZXSViewModel.m */; };
 		5F39903120E36159008EF6F3 /* SecondViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F39903020E36159008EF6F3 /* SecondViewModel.m */; };
+		5FAC8FA320E46BBC00F05AC4 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC8FA220E46BBC00F05AC4 /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		5F39902E20E34945008EF6F3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		5F39902F20E36159008EF6F3 /* SecondViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewModel.h; sourceTree = "<group>"; };
 		5F39903020E36159008EF6F3 /* SecondViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewModel.m; sourceTree = "<group>"; };
+		5FAC8FA120E46BBC00F05AC4 /* ThirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		5FAC8FA220E46BBC00F05AC4 /* ThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		870E8652525FB3B0AD692F9E /* Pods-TestRAC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestRAC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestRAC/Pods-TestRAC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +146,8 @@
 			children = (
 				5F39900B20E342BE008EF6F3 /* SecondViewController.h */,
 				5F39900C20E342BE008EF6F3 /* SecondViewController.m */,
+				5FAC8FA120E46BBC00F05AC4 /* ThirdViewController.h */,
+				5FAC8FA220E46BBC00F05AC4 /* ThirdViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 			files = (
 				5F39900D20E342BE008EF6F3 /* SecondViewController.m in Sources */,
 				5F39901620E3432C008EF6F3 /* MyModel.m in Sources */,
+				5FAC8FA320E46BBC00F05AC4 /* ThirdViewController.m in Sources */,
 				5F39901920E34343008EF6F3 /* SecondView.m in Sources */,
 				5F39902D20E346CB008EF6F3 /* ZXSViewModel.m in Sources */,
 				5F398FF620E340A4008EF6F3 /* ViewController.m in Sources */,

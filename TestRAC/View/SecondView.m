@@ -17,6 +17,8 @@
 
 @property (nonatomic,strong)UILabel *label;
 
+@property (nonatomic,strong)UIButton *nextBtn;
+
 @end
 
 @implementation SecondView
@@ -35,14 +37,13 @@
 
 - (void)zxs_setupViews
 {
-   
     [self button];
     [self label];
 }
 
 - (void)zxs_bindViewModel
 {
-    [self.viewModel.numChangedSignal subscribeNext:^(id  _Nullable x) {
+    [self.viewModel.numChangedSignalTV subscribeNext:^(id  _Nullable x) {
         int n = [x intValue];
         self.label.text = [NSString stringWithFormat:@"学生 %i",n];
     }];
@@ -67,12 +68,26 @@
         make.height.mas_equalTo(@(50));
     }];
     
+    [self.nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.mas_left).offset(20);
+        make.top.equalTo(self.mas_top).offset(300);
+        make.width.mas_equalTo(@(200));
+        make.height.mas_equalTo(@(50));
+    }];
+    
     [self.button addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.nextBtn addTarget:self action:@selector(next) forControlEvents:UIControlEventTouchUpInside];
+
     
 }
 
 - (void)add {
-    [self.viewModel.addSignal sendNext:@(5)];
+    [self.viewModel.addSignalTVM sendNext:@(5)];
+}
+
+- (void)next{
+    [self.viewModel.signalTC sendNext:nil];
 }
 
 #pragma mark - lazy loading -
@@ -97,6 +112,17 @@
         [self addSubview:_label];
     }
     return _label;
+}
+
+- (UIButton *)nextBtn
+{
+    if (!_nextBtn) {
+        _nextBtn = [[UIButton alloc] init];
+        [_nextBtn setTitle:@"next" forState:UIControlStateNormal];
+        [_nextBtn setTitleColor:UIColor.blueColor forState:UIControlStateNormal];
+        [self addSubview:_nextBtn];
+    }
+    return _nextBtn;
 }
 
 

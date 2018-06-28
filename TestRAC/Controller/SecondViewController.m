@@ -9,6 +9,7 @@
 #import "SecondViewController.h"
 #import "SecondViewModel.h"
 #import "SecondView.h"
+#import "ThirdViewController.h"
 
 @interface SecondViewController ()
 
@@ -45,8 +46,10 @@
     
     [self.mainView layoutMySubView];
     
+    @weakify(self)
     [self.viewModel.signalTC subscribeNext:^(id  _Nullable x) {
-        
+        ThirdViewController *controller = [[ThirdViewController alloc] init];
+        [self_weak_.navigationController pushViewController:controller animated:YES];
     }];
     
 }
