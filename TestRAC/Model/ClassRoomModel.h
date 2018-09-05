@@ -10,9 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MyModel : NSObject
+@interface ClassRoomModel : NSObject
 
-@property (nonatomic,assign)int stuNumber;
+/**
+ 班级名称
+ */
+@property (nonatomic,strong)NSString *classRoomName;
+
+/**
+ 学生数组
+ */
+@property (nonatomic,strong)NSMutableArray<NSString *> *students;
 
 @end
 

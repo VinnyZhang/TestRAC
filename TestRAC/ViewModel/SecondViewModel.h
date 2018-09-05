@@ -7,7 +7,7 @@
 //
 
 #import "ZXSViewModel.h"
-#import "MyModel.h"
+#import "ClassRoomModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,13 +15,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SecondViewModel : ZXSViewModel
 
-@property (nonatomic,strong)MyModel *model;
+/**
+ 班级信息
+ */
+@property (nonatomic,strong)ClassRoomModel *classRoom;
 
-@property (nonatomic,strong)RACSubject *addSignalTVM;
+/**
+ 发送到VM层的信号
+ */
+@property (nonatomic,strong)RACSubject *signalTVM;
 
-@property (nonatomic,strong)RACSubject *numChangedSignalTV;
+/**
+ 发送到所对应视图的信号
+ */
+@property (nonatomic,strong)RACSubject *signalTV;
 
-@property (nonatomic,strong)RACSubject *signalTC;
+/**
+ 发送到父视图的信号
+ */
+@property (nonatomic,strong)RACSubject *signalTS;
 
 @end
 

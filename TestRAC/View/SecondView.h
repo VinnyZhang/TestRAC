@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^SecondViewBlock)(void);
+
 @interface SecondView : ZXSView
+
+@property (nonatomic,copy)SecondViewBlock block;
 
 - (void)layoutMySubView;
 

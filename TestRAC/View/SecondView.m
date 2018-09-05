@@ -24,7 +24,10 @@
 @implementation SecondView
 
 
-
+- (void)setBlock:(SecondViewBlock)block
+{
+    _block = block;
+}
 
 
 #pragma mark - super methods -
@@ -47,6 +50,9 @@
         int n = [x intValue];
         self.label.text = [NSString stringWithFormat:@"学生 %i",n];
     }];
+    
+    
+    
 }
 
 #pragma mark - outside methods -

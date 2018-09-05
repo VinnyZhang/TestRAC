@@ -17,6 +17,10 @@
 
 @property (nonatomic,strong)SecondView *mainView;
 
+@property (nonatomic,strong)NSString *str;
+
+@property (nonatomic,assign)int ss;
+
 @end
 
 @implementation SecondViewController
@@ -36,6 +40,11 @@
     
 }
 
+- (void)dealloc
+{
+    NSLog(@"dealloc");
+}
+
 #pragma mark - private methods -
 
 - (void)layoutMySubViews {
@@ -52,6 +61,25 @@
         [self_weak_.navigationController pushViewController:controller animated:YES];
     }];
     
+    __weak typeof(self) weakself=self;
+    self.mainView.block = ^{
+//        weakself.str = @"rafaf";
+//        self.ss = 1;
+//        [weakself changss];
+    };
+    
+    
+    [self.viewModel.numChangedSignalTV subscribeNext:^(id  _Nullable x) {
+        int n = [x intValue];
+//        self.label.text = [NSString stringWithFormat:@"学生 %i",n];
+        NSLog(@"print -- num - %i",n);
+    }];
+    
+}
+
+- (void)changss{
+    self.str = @"fsf";
+    self.ss = 12;
 }
 
 #pragma mark - lazy loading -

@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SecondViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SecondViewController : UIViewController
+
+/**
+ VM
+ */
+@property (nonatomic,strong)SecondViewModel *viewModel;
 
 @end
 

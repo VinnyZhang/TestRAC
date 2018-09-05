@@ -6,14 +6,15 @@
 //  Copyright © 2018年 Zhang xiaosong. All rights reserved.
 //
 
-#import "MyModel.h"
+#import "ClassRoomModel.h"
 
-@implementation MyModel
+@implementation ClassRoomModel
 
 - (instancetype)init
 {
     if (self = [super init]){
-        self.stuNumber = 0;
+        self.classRoomName = @"";
+        self.students = [[NSMutableArray alloc] init];
     }
     
     return self;

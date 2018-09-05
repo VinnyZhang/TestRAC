@@ -7,48 +7,71 @@
 //
 
 #import "SecondViewModel.h"
-#import "MyModel.h"
+#import "ZXSSignalModel.h"
 
 @implementation SecondViewModel
 
-#pragma mark - i -
+#pragma mark - super -
+
+- (instancetype)initWithModel:(id)model
+{
+    self.classRoom = (ClassRoomModel *)model;
+    return [super initWithModel:model];
+}
 
 - (void)zxs_initialize
 {
-    self.model = [[MyModel alloc] init];
-    
     @weakify(self);
-    [self.addSignalTVM subscribeNext:^(id  _Nullable x) {
-        self_weak_.model.stuNumber += 1;
-        [self_weak_.numChangedSignalTV sendNext:@(self_weak_.model.stuNumber)];
+    [self.signalTVM subscribeNext:^(id  _Nullable x) {//监听消息（因为是处于VM中，所以只需监听signalTVM）
+        ZXSSignalModel *signalModel = (ZXSSignalModel *)x;
+        [self_weak_ controllSignal:signalModel];
     }];
     
 }
 
+#pragma mark - internal methods -
+
+/**
+ 处理信号
+ */
+- (void)controllSignal:(ZXSSignalModel *)signal
+{
+    
+}
+
+
+//网络请求
+
+
+// 数据组织
+
+
+//数据逻辑处理
+
 #pragma mark - lazy loading -
 
-- (RACSubject *)addSignalTVM
+- (RACSubject *)signalTVM
 {
-    if(!_addSignalTVM){
-        _addSignalTVM = [[RACSubject alloc] init];
+    if(!_signalTVM){
+        _signalTVM = [[RACSubject alloc] init];
     }
-    return _addSignalTVM;
+    return _signalTVM;
 }
 
-- (RACSubject *)numChangedSignalTV
+- (RACSubject *)signalTV
 {
-    if (!_numChangedSignalTV) {
-        _numChangedSignalTV = [[RACSubject alloc] init];
+    if (!_signalTV) {
+        _signalTV = [[RACSubject alloc] init];
     }
-    return _numChangedSignalTV;
+    return _signalTV;
 }
 
-- (RACSubject *)signalTC
+- (RACSubject *)signalTS
 {
-    if(!_signalTC){
-        _signalTC = [[RACSubject alloc] init];
+    if(!_signalTS){
+        _signalTS = [[RACSubject alloc] init];
     }
-    return _signalTC;
+    return _signalTS;
 }
 
 @end
